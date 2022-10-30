@@ -1,0 +1,8 @@
+com\liceu\geom\DAO\MessageDao.class
+com\liceu\geom\model\Message.class
+com\liceu\geom\model\User.class
+com\liceu\geom\model\Figure.class
+com\liceu\geom\DAO\MessageDaoImplements.class
+com\liceu\geom\services\TextService.class
+com\liceu\geom\controllers\Index.class
+com\liceu\geom\model\Circle.class
