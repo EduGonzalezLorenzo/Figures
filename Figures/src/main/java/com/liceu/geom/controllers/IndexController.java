@@ -1,8 +1,6 @@
 package com.liceu.geom.controllers;
-
 import com.liceu.geom.model.Message;
 import com.liceu.geom.services.TextService;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

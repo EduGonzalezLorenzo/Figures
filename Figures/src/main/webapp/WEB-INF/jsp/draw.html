@@ -11,25 +11,24 @@
     <title>Figures</title>
 </head>
 
-<body data-bs-target=".navbar" data-bs-offset="50">
+<body>
     <header class="fixed-top">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
-                <a class="nav-link text-center active" data-bs-toggle="tab" href="index.html">Dibujar</a>
+                <a class="nav-link text-center active" href="draw.html">Dibujar</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" data-bs-toggle="tab" href="images.html">Todas las figuras</a>
+                <a class="nav-link text-center" href="allFigures.html">Todas las figuras</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" data-bs-toggle="tab" href="profile.html">Mis figuras</a>
+                <a class="nav-link text-center" href="profile.html">Mis figuras</a>
             </li>
         </ul>
     </header>
 
-    <main class="container tab-content">
-        <article id="draw">
-            <canvas id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
-            <form action="submit" onchange="getData()">
+    <main class="container">
+        <article class="row" id="draw">
+            <form class="col-2" action="/draw" method="POST">
                 <label for="shape">Seleccione una figura:</label>
                 <select name="shape" id="shape">
                     <option value="circle">Círculo</option>
@@ -49,12 +48,22 @@
                     <option value="gray">Gris</option>
                 </select>
                 <br>
-                <label for="size">Seleccione tamaño de la figura:</label>
-                <input type="range" min="10" max="500" value="250" id="size" name="size">
+                <label for="xCoor">Coordenada x: </label>
+                <input type="number" id="xCoor" name="xCoor">
+                <label for="yCoor">Coordenada y: </label> 
+                <input type="number" id="yCoor" name="yCoor">
                 <br>
+                <label for="size">Seleccione tamaño de la figura:</label>
+                <input type="range" min="10" max="500" value="250" id="sizeRange" name="sizeRange"
+                    oninput="this.form.size.value=this.value">
+                <input type="number" min="10" max="500" value="250" name="size" id="size"
+                    oninput="this.form.sizeRange.value=this.value">
+                <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente boton.</p>
+                <button type="button" onclick="drawButton()">Dibujar</button>
                 <input type="submit" value="Envia">
             </form>
-
+            <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
+            
         </article>
 
     </main>
@@ -67,16 +76,28 @@
             getData();
         });
 
-        function getData(){
+        function drawButton(){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            let x = event.clientX - boundingRect.left;
-            let y = event.clientY - boundingRect.top;
+            let x = parseInt(document.getElementById("xCoor").value);
+            let y = parseInt(document.getElementById("yCoor").value);
             let shape = document.getElementById("shape").value;
             let color = document.getElementById("color").value;
             let size = parseInt(document.getElementById("size").value);
             drawFigure(shape, x, y, color, size);
         }
-        function drawFigure(shape, x, y, color, size){
+
+        function getData() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let x = Math.floor(event.clientX - boundingRect.left);
+            let y = Math.floor(event.clientY - boundingRect.top);
+            let shape = document.getElementById("shape").value;
+            let color = document.getElementById("color").value;
+            let size = parseInt(document.getElementById("size").value);
+            drawFigure(shape, x, y, color, size);
+            document.getElementById("xCoor").value = x;
+            document.getElementById("yCoor").value = y;            
+        }
+        function drawFigure(shape, x, y, color, size) {
             switch (shape) {
                 case "circle":
                     drawCircle(x, y, color, size);
@@ -130,7 +151,7 @@
             ctx.beginPath();
             for (let i = 0; i <= 5; i++) {
                 let curStep = i * (side + turnAngle);
-                ctx.lineTo(x + (size * Math.cos(curStep))/2, y + (size * Math.sin(curStep))/2);
+                ctx.lineTo(x + (size * Math.cos(curStep)) / 2, y + (size * Math.sin(curStep)) / 2);
             }
             ctx.stroke();
             ctx.fillStyle = color;

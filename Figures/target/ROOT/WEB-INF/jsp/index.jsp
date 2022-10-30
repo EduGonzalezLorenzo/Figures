@@ -20,7 +20,7 @@
             <textarea name="text">
             </textarea>
             <br>
-            <input type="submit" value="Envia">
+            <input type="submit" value="Enviar">
         </form>
     </body>
 

@@ -15,10 +15,10 @@
     <header class="fixed-top">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
-                <a class="nav-link text-center active" href="index.html">Dibujar</a>
+                <a class="nav-link text-center active" href="draw.html">Dibujar</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" href="images.html">Todas las figuras</a>
+                <a class="nav-link text-center" href="allFigures.html">Todas las figuras</a>
             </li>
             <li class="nav-item col-4">
                 <a class="nav-link text-center" href="profile.html">Mis figuras</a>
@@ -26,11 +26,19 @@
         </ul>
     </header>
 
-    <main class="container tab-content">
+    <main class="container">
         <article id="allFig">
             <h1 class="text-center">Todas las figuras</h1>
-            <table>
-                <!-- For que hace filas en función de la cantidad de figuras que hay en la base de datos global -->
+            <table style="margin-bottom:10px; border: 1px solid black;">
+                <c:forEach var="figure" items="${figures}">
+                    <tr>
+                       <td>${figure.x}</td> 
+                       <td>${figure.y}</td> 
+                       <td>${figure.size}</td> 
+                       <td>${figure.color}</td>
+                       <td>${figure.shape}</td> 
+                    </tr>
+                </c:forEach>
             </table>
         </article>
     </main>

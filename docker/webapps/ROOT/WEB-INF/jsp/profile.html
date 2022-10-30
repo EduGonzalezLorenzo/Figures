@@ -11,26 +11,30 @@
     <title>Figures</title>
 </head>
 
-<body data-bs-target=".navbar" data-bs-offset="50">
+<body>
     <header class="fixed-top">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
-                <a class="nav-link text-center active" data-bs-toggle="tab" href="index.html">Dibujar</a>
+                <a class="nav-link text-center active" href="draw.html">Dibujar</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" data-bs-toggle="tab" href="images.html">Todas las figuras</a>
+                <a class="nav-link text-center" href="images.html">Todas las figuras</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" data-bs-toggle="tab" href="profile.html">Mis figuras</a>
+                <a class="nav-link text-center" href="profile.html">Mis figuras</a>
             </li>
         </ul>
     </header>
 
-    <main class="container tab-content">
-        <article id="myFig" class="tab-pane fade">
+    <main class="container">
+        <article id="myFig">
             <h1 class="text-center">Tus figuras</h1>
             <table>
-                <!-- For que hace filas en función de la cantidad de figuras que hay en la base de datos del usuario -->
+                <c:forEach var="m" items="${messages}">
+                    <div style="margin-bottom:10px; border: 1px solid black;">
+                        ${m.text}
+                    </div>
+                </c:forEach>
             </table>
         </article>
     </main>
