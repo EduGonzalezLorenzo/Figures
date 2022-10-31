@@ -35,6 +35,8 @@
     <main class="container">
         <article class="row" id="draw">
             <form class="col-2" action="/draw" method="POST">
+                <label for="figName">Nombre de la figura:</label>
+                <input type="text" id="figName" name="figName">
                 <label for="shape">Seleccione una figura:</label>
                 <select name="shape" id="shape">
                     <option value="circle">Círculo</option>
@@ -56,7 +58,7 @@
                 <br>
                 <label for="xCoor">Coordenada x: </label>
                 <input type="number" id="xCoor" name="xCoor">
-                <label for="yCoor">Coordenada y: </label>
+                <label for="yCoor">Coordenada y: </label> 
                 <input type="number" id="yCoor" name="yCoor">
                 <br>
                 <label for="size">Seleccione tamaño de la figura:</label>
@@ -66,7 +68,7 @@
                     oninput="this.form.sizeRange.value=this.value">
                 <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente boton.</p>
                 <button type="button" onclick="drawButton()">Dibujar</button>
-                <input type="submit" value="Envia">
+                <input type="submit" value="Enviar">
             </form>
             <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
             

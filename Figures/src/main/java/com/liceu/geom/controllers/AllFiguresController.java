@@ -14,7 +14,6 @@ import java.util.List;
 
 @WebServlet("/allFig")
 public class AllFiguresController extends HttpServlet{
-
         FigureService figureService = new FigureService();
 
         @Override

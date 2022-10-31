@@ -36,7 +36,7 @@
 
     <main class="container">
         <article id="allFig" class="row justify-content-center">
-            <h1 class="text-center">Todas las figuras</h1>
+            <h1 class="text-center">Perfil de ${currentUser}</h1>
             <table>
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre</th>
@@ -48,7 +48,6 @@
                 </tr>
                 <c:forEach var="figure" items="${figures}">
                     <tr style="margin-bottom:10px; border: 1px solid black;">
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
                         <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
                         <td style="margin-bottom:10px; border: 1px solid black;">${figure.x}</td>
                         <td style="margin-bottom:10px; border: 1px solid black;">${figure.y}</td>

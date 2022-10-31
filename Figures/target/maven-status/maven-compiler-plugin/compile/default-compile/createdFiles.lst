@@ -1,12 +1,11 @@
-com\liceu\geom\DAO\MessageDao.class
-com\liceu\geom\model\Message.class
+com\liceu\geom\DAO\UserDao.class
 com\liceu\geom\model\User.class
 com\liceu\geom\controllers\AllFiguresController.class
+com\liceu\geom\controllers\LoginController.class
 com\liceu\geom\services\FigureService.class
 com\liceu\geom\controllers\DrawController.class
 com\liceu\geom\model\Figure.class
-com\liceu\geom\DAO\MessageDaoImplements.class
+com\liceu\geom\DAO\UserDaoImpl.class
+com\liceu\geom\services\UserService.class
 com\liceu\geom\DAO\FigureDao.class
-com\liceu\geom\controllers\IndexController.class
 com\liceu\geom\DAO\FigureDaoImpl.class
-com\liceu\geom\services\TextService.class

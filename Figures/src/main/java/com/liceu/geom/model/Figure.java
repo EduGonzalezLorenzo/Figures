@@ -1,6 +1,7 @@
 package com.liceu.geom.model;
 
 public class Figure {
+    String name;
     int x;
     int y;
     int size;
@@ -9,12 +10,22 @@ public class Figure {
     User user;
     int id;
 
-    public Figure(int x, int y, int size, String color, String shape) {
+    public Figure(User user, String name, int x, int y, int size, String color, String shape) {
+        this.user = user;
+        this.name = name;
         this.x = x;
         this.y = y;
         this.size = size;
         this.color = color;
         this.shape = shape;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getX() {

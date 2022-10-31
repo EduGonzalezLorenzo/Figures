@@ -15,25 +15,38 @@
     <header class="fixed-top">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
-                <a class="nav-link text-center active" href="draw.html">Dibujar</a>
+                <a class="nav-link text-center active" href="draw">Dibujar</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" href="images.html">Todas las figuras</a>
+                <a class="nav-link text-center" href="allFig">Todas las figuras</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" href="profile.html">Mis figuras</a>
+                <a class="nav-link text-center" href="profile.jsp">Mis figuras</a>
             </li>
         </ul>
     </header>
 
     <main class="container">
-        <article id="myFig">
-            <h1 class="text-center">Tus figuras</h1>
+        <article id="allFig" class="row justify-content-center">
+            <h1 class="text-center">Perfil de ${currentUser}</h1>
             <table>
-                <c:forEach var="m" items="${messages}">
-                    <div style="margin-bottom:10px; border: 1px solid black;">
-                        ${m.text}
-                    </div>
+                <tr style="margin-bottom:10px; border: 1px solid black;">
+                    <th style="margin-bottom:10px; border: 1px solid black;">Nombre</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Coordenada X</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Coordenada Y</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Tamaño</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Color</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Tipo de figura</th>
+                </tr>
+                <c:forEach var="figure" items="${figures}">
+                    <tr style="margin-bottom:10px; border: 1px solid black;">
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.x}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.y}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.size}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.color}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
+                    </tr>
                 </c:forEach>
             </table>
         </article>

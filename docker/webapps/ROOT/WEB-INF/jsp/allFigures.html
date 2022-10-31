@@ -27,16 +27,26 @@
     </header>
 
     <main class="container">
-        <article id="allFig">
+        <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Todas las figuras</h1>
-            <table style="margin-bottom:10px; border: 1px solid black;">
+            <table>
+                <tr style="margin-bottom:10px; border: 1px solid black;">
+                    <th style="margin-bottom:10px; border: 1px solid black;">Nombre</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Coordenada X</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Coordenada Y</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Tamaño</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Color</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Tipo de figura</th>
+                </tr>
                 <c:forEach var="figure" items="${figures}">
-                    <tr>
-                       <td>${figure.x}</td> 
-                       <td>${figure.y}</td> 
-                       <td>${figure.size}</td> 
-                       <td>${figure.color}</td>
-                       <td>${figure.shape}</td> 
+                    <tr style="margin-bottom:10px; border: 1px solid black;">
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.x}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.y}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.size}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.color}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
                     </tr>
                 </c:forEach>
             </table>
