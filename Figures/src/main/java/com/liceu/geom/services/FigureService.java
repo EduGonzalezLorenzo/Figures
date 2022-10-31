@@ -19,4 +19,8 @@ public class FigureService {
     public List<Figure> getAllFigures() {
         return figureDao.getAllFigures();
     }
+
+    public void deleteFigure(Figure figure){
+        figureDao.deleteFigure(figure);
+    }
 }

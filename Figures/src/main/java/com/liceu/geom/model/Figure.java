@@ -1,5 +1,7 @@
 package com.liceu.geom.model;
 
+import java.time.LocalDate;
+
 public class Figure {
     String name;
     int x;
@@ -9,6 +11,7 @@ public class Figure {
     String shape;
     User user;
     int id;
+    LocalDate creationDate;
 
     public Figure(User user, String name, int x, int y, int size, String color, String shape) {
         this.user = user;
@@ -18,6 +21,7 @@ public class Figure {
         this.size = size;
         this.color = color;
         this.shape = shape;
+        this.creationDate = java.time.LocalDate.now();
     }
 
     public String getName() {
@@ -82,5 +86,13 @@ public class Figure {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 }

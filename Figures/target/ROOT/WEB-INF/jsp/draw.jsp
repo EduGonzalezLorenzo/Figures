@@ -27,7 +27,7 @@
                 <a class="nav-link text-center" href="allFig">Todas las figuras</a>
             </li>
             <li class="nav-item col-4">
-                <a class="nav-link text-center" href="profile.jsp">Mis figuras</a>
+                <a class="nav-link text-center" href="profile">Mis figuras</a>
             </li>
         </ul>
     </header>

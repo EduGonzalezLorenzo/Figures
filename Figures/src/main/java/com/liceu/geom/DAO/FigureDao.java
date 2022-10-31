@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface FigureDao {
     void saveFigure(Figure figure);
+    void deleteFigure(Figure figure);
     List<Figure> getAllFigures();
 
 }
