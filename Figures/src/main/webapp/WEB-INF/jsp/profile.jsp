@@ -46,101 +46,27 @@
                     <th style="margin-bottom:10px; border: 1px solid black;">Borrar figura</th>
                 </tr>
                 <c:forEach var="figure" items="${figures}">
-                    <c:if test="${figure.user.name == currentUser.name}">
                         <tr style="margin-bottom:10px; border: 1px solid black;">
                             <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
                             <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
                             <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
                             <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
-                            <td style="margin-bottom:10px; border: 1px solid black;"> <button
-                                    onclick="drawByForm()">Dibujar figura</button></td>
-                            <td style="margin-bottom:10px; border: 1px solid black;"> <button
-                                    onclick="DeleteFigure()">Borrar figura</button></td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">
+                                <form action="/profile" method="POST">
+                                    <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                    <input type="submit" value="Ver dibujo">
+                                </form>
+                            </td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">
+                                <form action="/profile" method="POST">
+                                    <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                    <input type="submit" value="Borrar dibujo">
+                                </form>
+                            </td>
                         </tr>
-                    </c:if>
                 </c:forEach>
             </table>
-            <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
         </article>
-        <script>
-            const canvas = document.getElementById("canvas");
-            const ctx = canvas.getContext("2d");
-            const boundingRect = canvas.getBoundingClientRect();
-
-            canvas.addEventListener("mousedown", function (event) {
-                getData();
-            });
-
-            function drawButton() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                let x = parseInt(document.getElementById("xCoor").value);
-                let y = parseInt(document.getElementById("yCoor").value);
-                let shape = document.getElementById("shape").value;
-                let color = document.getElementById("color").value;
-                let size = parseInt(document.getElementById("size").value);
-                drawFigure(shape, x, y, color, size);
-            }
-            function drawFigure(shape, x, y, color, size) {
-                switch (shape) {
-                    case "circle":
-                        drawCircle(x, y, color, size);
-                        break;
-                    case "square":
-                        drawSquare(x, y, color, size);
-                        break;
-                    case "triangle":
-                        drawTriangle(x, y, color, size);
-                        break;
-                    case "pentagon":
-                        drawPengaton(x, y, color, size);
-                        break;
-                    case "star":
-
-                        break;
-                    default:
-
-                }
-            }
-            function drawCircle(x, y, color, size) {
-                ctx.beginPath();
-                ctx.arc(x, y, size / 2, 0, 2 * Math.PI);
-                ctx.stroke();
-                ctx.fillStyle = color;
-                ctx.fill();
-            }
-            function drawSquare(x, y, color, size) {
-                let radius = size / 2;
-                ctx.beginPath();
-                ctx.rect(x - radius, y - radius, size, size);;
-                ctx.stroke();
-                ctx.fillStyle = color;
-                ctx.fill();
-            }
-            function drawTriangle(x, y, color, size) {
-                let radius = size / 2;
-                ctx.beginPath();
-                ctx.moveTo(x, y - radius);
-                ctx.lineTo(x - radius, y + radius);
-                ctx.lineTo(x + radius, y + radius);
-                ctx.closePath();
-                ctx.stroke();
-                ctx.fillStyle = color;
-                ctx.fill();
-            }
-            function drawPengaton(x, y, color, size) {
-                let side = 2 * Math.PI / 5;
-                let turnAngle = (Math.PI / 180.0) * - 0.05;
-
-                ctx.beginPath();
-                for (let i = 0; i <= 5; i++) {
-                    let curStep = i * (side + turnAngle);
-                    ctx.lineTo(x + (size * Math.cos(curStep)) / 2, y + (size * Math.sin(curStep)) / 2);
-                }
-                ctx.stroke();
-                ctx.fillStyle = color;
-                ctx.fill();
-            }
-        </script>
     </main>
     <script>
 

@@ -20,7 +20,7 @@ public class FigureDaoImpl implements FigureDao {
     @Override
     public void deleteFigure(Figure figure) {
         for (int i = 0; i < figuresList.size(); i++) {
-            if (figure.getId() == figuresList.get(i).getId()){
+            if (figure.getId() == figuresList.get(i).getId()) {
                 figuresList.remove(i);
                 break;
             }
@@ -30,6 +30,17 @@ public class FigureDaoImpl implements FigureDao {
     @Override
     public List<Figure> getAllFigures() {
         return figuresList;
+    }
+
+    @Override
+    public List<Figure> getUserFigures(User user) {
+        List<Figure> userFiguresList = new ArrayList<>();
+        for (Figure figure : figuresList) {
+            if(figure.getUser().getName().equals(user.getName())){
+                userFiguresList.add(figure);
+            }
+        }
+        return userFiguresList;
     }
 
 }

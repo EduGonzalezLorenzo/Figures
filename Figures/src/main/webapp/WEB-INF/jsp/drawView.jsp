@@ -1,3 +1,10 @@
+<%@ page isELIgnored="false" %>
+<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<style><%@include file="./styles.css"%></style>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,30 +34,8 @@
     </header>
 
     <main class="container">
-        <article id="allFig" class="row justify-content-center">
-            <h1 class="text-center">Todas las figuras</h1>
-            <table>
-                <tr style="margin-bottom:10px; border: 1px solid black;">
-                    <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
-                    <th style="margin-bottom:10px; border: 1px solid black;">Nombre de la figura</th>
-                    <th style="margin-bottom:10px; border: 1px solid black;">Tipo de figura</th>
-                    <th style="margin-bottom:10px; border: 1px solid black;">Fecha de creación</th>
-                    <th style="margin-bottom:10px; border: 1px solid black;">Mostrar figura</th>
-                    <th style="margin-bottom:10px; border: 1px solid black;">Borrar figura</th>
-                </tr>
-                <c:forEach var="figure" items="${figures}">
-                    <tr style="margin-bottom:10px; border: 1px solid black;">
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;"> <button
-                            onclick="drawByForm()">Dibujar figura</button></td>
-                    <td style="margin-bottom:10px; border: 1px solid black;"> <button
-                            onclick="DeleteFigure()">Borrar figura</button></td>
-                    </tr>
-                </c:forEach>
-            </table>
+        <article id="drawView" class="row justify-content-center">
+            <h1 class="text-center">Muestra de la figura ${figure.name} del usuario ${figure.user.name}.</h1>
             <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
         </article>
     </main>

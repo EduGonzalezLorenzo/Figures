@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a1114b75-ff54-4663-942b-a1644bdd03b2" name="Changes" comment="Commit y push inicial.">
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/classes/com/liceu/geom/model/Figure.class" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/classes/com/liceu/geom/model/Figure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/profile.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +43,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/eduar/OneDrive/Escritorio/Proyectos/Figures/Figures/Figures"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\eduar\OneDrive\Escritorio\Proyectos\Figures\Figures\src\main\webapp\WEB-INF" />
@@ -114,7 +114,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit y push inicial." />

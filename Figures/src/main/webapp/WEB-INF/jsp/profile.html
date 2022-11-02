@@ -39,18 +39,24 @@
                     <th style="margin-bottom:10px; border: 1px solid black;">Borrar figura</th>
                 </tr>
                 <c:forEach var="figure" items="${figures}">
-                    <c:if test="${figure.user.name == currentUser.name}">
-                        <tr style="margin-bottom:10px; border: 1px solid black;">
-                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
-                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
-                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
-                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
-                            <td style="margin-bottom:10px; border: 1px solid black;"> <button
-                                    onclick="drawByForm()">Dibujar figura</button></td>
-                            <td style="margin-bottom:10px; border: 1px solid black;"> <button
-                                    onclick="DeleteFigure()">Borrar figura</button></td>
-                        </tr>
-                    </c:if>
+                    <tr style="margin-bottom:10px; border: 1px solid black;">
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">
+                            <form action="/profile" method="POST">
+                                <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                <input type="submit" value="Ver dibujo">
+                            </form>
+                        </td>
+                        <td style="margin-bottom:10px; border: 1px solid black;">
+                            <form action="/profile" method="POST">
+                                <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                <input type="submit" value="Borrar dibujo">
+                            </form>
+                        </td>
+                    </tr>
                 </c:forEach>
             </table>
             <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>

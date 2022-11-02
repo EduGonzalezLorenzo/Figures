@@ -10,4 +10,5 @@ public interface FigureDao {
     void deleteFigure(Figure figure);
     List<Figure> getAllFigures();
 
+    List<Figure> getUserFigures(User user);
 }

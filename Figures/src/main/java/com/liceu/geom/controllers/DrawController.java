@@ -24,10 +24,10 @@ public class DrawController extends HttpServlet {
         RequestDispatcher dispatcher;
         if (currentUser == null) {
             resp.sendRedirect("/login");
-        } else {
-            dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/draw.jsp");
-            dispatcher.forward(req, resp);
+            return;
         }
+        dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/draw.jsp");
+        dispatcher.forward(req, resp);
     }
 
     @Override
@@ -40,10 +40,11 @@ public class DrawController extends HttpServlet {
         int size = Integer.parseInt(req.getParameter("size"));
         String shape = req.getParameter("shape");
         String color = req.getParameter("color");
-        if (name.equals("")) name = shape + (int)((Math.random() + 1) * 100);
+        //TODO if en service y revisar que el nombre no exista para el mismo (dar error).
 
         figureService.newFigure(currentUser, name, x, y, size, color, shape);
 
+        //TODO añadir mensaje de confirmación o error cuando se intenta añadir una imagen
         resp.sendRedirect("/draw");
     }
 }
