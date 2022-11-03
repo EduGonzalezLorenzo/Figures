@@ -24,6 +24,11 @@ public class LoginController  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("currentUser");
+        if (userName.equals("")){
+            req.setAttribute("logError", "No se ha introducido un nombre valido.");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+            dispatcher.forward(req, resp);
+        }
         userService.login(userName);
 
         HttpSession session = req.getSession();

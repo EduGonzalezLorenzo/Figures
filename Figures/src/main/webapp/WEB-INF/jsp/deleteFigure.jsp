@@ -15,18 +15,25 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Inicio de sesión</title>
+    <title>Mensaje de borrado</title>
 </head>
 
 <body>
-    <h1>Inicio de sesión</h1>
-    <form action="/login" method="POST">
-        <label for="currentUser">Introduzca un usuario para empezar:</label>
-        <input type="text" name="currentUser" id="currentUser">
-        <input type="submit" value="Enviar">
-    </form>
-    <c:if test ="${not empty logError}">
-        <p> Error: ${logError}. </p>
-    </c:if>
+    <header class="fixed-top">
+        <ul class="nav nav-tabs justify-content-around row" role="tablist">
+            <li class="nav-item col-4">
+                <a class="nav-link text-center active" href="draw">Dibujar</a>
+            </li>
+            <li class="nav-item col-4">
+                <a class="nav-link text-center" href="allFig">Todas las figuras</a>
+            </li>
+            <li class="nav-item col-4">
+                <a class="nav-link text-center" href="profile">Mis figuras</a>
+            </li>
+        </ul>
+    </header>
+   <main>
+        ${deleteMessage}
+    </main>
 </body>
 </html>

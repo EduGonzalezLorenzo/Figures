@@ -11,20 +11,27 @@ public class FigureDaoImpl implements FigureDao {
     static int currentID = 0;
 
     @Override
-    public void saveFigure(Figure figure) {
+    public Boolean saveFigure(Figure figure) {
+        for (Figure f : figuresList) {
+            if (f.getName().equals(figure.getName()) && f.getUser().getName().equals(figure.getUser().getName())){
+                return false;
+            }
+        }
         figure.setId(currentID);
         figuresList.add(figure);
         currentID++;
+        return true;
     }
 
     @Override
-    public void deleteFigure(int figureID) {
+    public Boolean deleteFigure(int figureID) {
         for (int i = 0; i < figuresList.size(); i++) {
             if (figureID == figuresList.get(i).getId()) {
                 figuresList.remove(i);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     @Override
@@ -36,7 +43,7 @@ public class FigureDaoImpl implements FigureDao {
     public List<Figure> getUserFigures(User user) {
         List<Figure> userFiguresList = new ArrayList<>();
         for (Figure figure : figuresList) {
-            if(figure.getUser().getName().equals(user.getName())){
+            if (figure.getUser().getName().equals(user.getName())) {
                 userFiguresList.add(figure);
             }
         }
@@ -46,7 +53,7 @@ public class FigureDaoImpl implements FigureDao {
     @Override
     public Figure getFigureByID(int figureID) {
         for (Figure figure : figuresList) {
-            if(figure.getId() == figureID){
+            if (figure.getId() == figureID) {
                 return figure;
             }
         }

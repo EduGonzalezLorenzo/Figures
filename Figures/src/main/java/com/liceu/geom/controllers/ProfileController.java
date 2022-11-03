@@ -35,12 +35,10 @@ public class ProfileController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/profile.jsp");
-        dispatcher.forward(req, resp);
-        /*HttpSession session = req.getSession();
+        HttpSession session = req.getSession();
 
         session.setAttribute("currentUser", null);
 
-        resp.sendRedirect("/login");*/
+        resp.sendRedirect("/login");
     }
 }

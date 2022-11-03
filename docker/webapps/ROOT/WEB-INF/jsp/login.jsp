@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Figures</title>
+    <title>Inicio de sesión</title>
 </head>
 
 <body>
@@ -25,5 +25,8 @@
         <input type="text" name="currentUser" id="currentUser">
         <input type="submit" value="Enviar">
     </form>
+    <c:if test ="${not empty logError}">
+        <p> Error: ${logError}. </p>
+    </c:if>
 </body>
 </html>

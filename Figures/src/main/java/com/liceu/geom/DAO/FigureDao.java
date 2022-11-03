@@ -6,9 +6,9 @@ import com.liceu.geom.model.User;
 import java.util.List;
 
 public interface FigureDao {
-    void saveFigure(Figure figure);
+    Boolean saveFigure(Figure figure);
 
-    void deleteFigure(int figureID);
+    Boolean deleteFigure(int figureID);
 
     List<Figure> getAllFigures();
 

@@ -10,11 +10,20 @@ import java.util.List;
 public class FigureService {
     FigureDao figureDao = new FigureDaoImpl();
 
-    public void newFigure(User user, String name, int x, int y, int size, String color, String shape) {
-        if (name.equals("")) name = shape + (int) ((Math.random()) * 100);
-
+    public Boolean newFigure(User user, String name, int x, int y, int size, String color, String shape) {
+        if (name.equals("")){
+            name = shape + (int) ((Math.random()) * 100);
+            Figure figure = new Figure(user, name, x, y, size, color, shape);
+            Boolean success = figureDao.saveFigure(figure);
+            while (!success){
+                name = shape + (int) ((Math.random()) * 100);
+                figure = new Figure(user, name, x, y, size, color, shape);
+                success = figureDao.saveFigure(figure);
+            }
+            return true;
+        }
         Figure figure = new Figure(user, name, x, y, size, color, shape);
-        figureDao.saveFigure(figure);
+        return figureDao.saveFigure(figure);
     }
 
     public List<Figure> getAllFigures() {
@@ -25,8 +34,8 @@ public class FigureService {
         return figureDao.getUserFigures(user);
     }
 
-    public void deleteFigure(int figureID){
-        figureDao.deleteFigure(figureID);
+    public Boolean deleteFigure(int figureID){
+        return figureDao.deleteFigure(figureID);
     }
 
     public Figure getFigureByID(int figureID) {

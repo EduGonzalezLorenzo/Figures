@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Figures</title>
+    <title>Mi Perfil</title>
 </head>
 
 <body>
@@ -36,8 +36,8 @@
     <main class="container">
         <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Perfil de ${currentUser.name}</h1>
-            <form action="/login" method="POST">
-                <input type="submit" value="Cambiar de usuario">    
+            <form action="/profile" method="POST">
+                <input type="submit" value="Cerrar sesión">    
             </form>
             <table>
                 <tr style="margin-bottom:10px; border: 1px solid black;">
@@ -61,7 +61,7 @@
                                 </form>
                             </td>
                             <td style="margin-bottom:10px; border: 1px solid black;">
-                                <form action="/profile" method="POST">
+                                <form action="/delete" method="POST">
                                     <input type="hidden" name="fid" id="fid" value=${figure.id}>
                                     <input type="submit" value="Borrar dibujo">
                                 </form>

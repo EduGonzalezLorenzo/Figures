@@ -1,6 +1,5 @@
 package com.liceu.geom.controllers;
 
-import com.liceu.geom.model.Figure;
 import com.liceu.geom.model.User;
 import com.liceu.geom.services.FigureService;
 
@@ -41,11 +40,9 @@ public class DrawController extends HttpServlet {
         int size = Integer.parseInt(req.getParameter("size"));
         String shape = req.getParameter("shape");
         String color = req.getParameter("color");
-        //TODO if en service y revisar que el nombre no exista para el mismo (dar error).
 
-        figureService.newFigure(currentUser, name, x, y, size, color, shape);
+        session.setAttribute("drawStatus", figureService.newFigure(currentUser, name, x, y, size, color, shape));
 
-        //TODO añadir mensaje de confirmación o error cuando se intenta añadir una imagen
-        resp.sendRedirect("/draw");
+        resp.sendRedirect("/drawVal");
     }
 }
