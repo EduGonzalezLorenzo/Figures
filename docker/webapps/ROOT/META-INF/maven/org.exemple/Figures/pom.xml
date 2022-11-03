@@ -73,11 +73,11 @@
           <container>
             <containerId>tomcat7x</containerId>
             <type>installed</type>
-            <home>C:\Users\eduar\OneDrive\Escritorio\Proyectos\Figures\Figures\docker</home>
+            <home>C:\Users\eduar\Desktop\GitHub\Figures\docker</home>
           </container>
           <configuration>
             <type>existing</type>
-            <home>C:\Users\eduar\OneDrive\Escritorio\Proyectos\Figures\Figures\docker</home>
+            <home>C:\Users\eduar\Desktop\GitHub\Figures\docker</home>
           </configuration>
         </configuration>
       </plugin>

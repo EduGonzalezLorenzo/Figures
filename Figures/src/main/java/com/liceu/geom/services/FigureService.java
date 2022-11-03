@@ -25,7 +25,11 @@ public class FigureService {
         return figureDao.getUserFigures(user);
     }
 
-    public void deleteFigure(Figure figure){
-        figureDao.deleteFigure(figure);
+    public void deleteFigure(int figureID){
+        figureDao.deleteFigure(figureID);
+    }
+
+    public Figure getFigureByID(int figureID) {
+        return figureDao.getFigureByID(figureID);
     }
 }

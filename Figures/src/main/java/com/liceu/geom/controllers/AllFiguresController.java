@@ -27,7 +27,7 @@ public class AllFiguresController extends HttpServlet{
 
         @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/allFigures.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/allFig.jsp");
             dispatcher.forward(req, resp);
         }
     }

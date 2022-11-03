@@ -18,43 +18,35 @@
     <title>Figures</title>
 </head>
 
-<body>
-    <header class="fixed-top">
-        <ul class="nav nav-tabs justify-content-around row" role="tablist">
-            <li class="nav-item col-4">
-                <a class="nav-link text-center active" href="draw">Dibujar</a>
-            </li>
-            <li class="nav-item col-4">
-                <a class="nav-link text-center" href="allFig">Todas las figuras</a>
-            </li>
-            <li class="nav-item col-4">
-                <a class="nav-link text-center" href="profile">Mis figuras</a>
-            </li>
-        </ul>
-    </header>
-
+<body onload="drawButton()">
     <main class="container">
         <article id="drawView" class="row justify-content-center">
-            <h1 class="text-center">Muestra de la figura ${figure.name} del usuario ${figure.user.name}.</h1>
+            <h1 class="text-center">Muestra de la figura ${figureToDraw.name} del usuario ${figureToDraw.user.name}.</h1>
             <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
+            <input type="hidden" name="xCoor" id="xCoor" value=${figureToDraw.x}>
+            <input type="hidden" name="yCoor" id="yCoor" value=${figureToDraw.y}>
+            <input type="hidden" name="shape" id="shape" value=${figureToDraw.shape}>
+            <input type="hidden" name="color" id="color" value=${figureToDraw.color}>
+            <input type="hidden" name="size" id="size" value=${figureToDraw.size}>               
         </article>
     </main>
+
     <script>
-        const canvas = document.getElementById("canvas");
+        const canvas = document.getElementById("canvas")
         const ctx = canvas.getContext("2d");
-        const boundingRect = canvas.getBoundingClientRect();
-
-        canvas.addEventListener("mousedown", function (event) {
-            getData();
-        });
-
+        
         function drawButton() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             let x = parseInt(document.getElementById("xCoor").value);
+            console.log(x);
             let y = parseInt(document.getElementById("yCoor").value);
+            console.log(y);
             let shape = document.getElementById("shape").value;
+            console.log(shape);
             let color = document.getElementById("color").value;
+            console.log(color);
             let size = parseInt(document.getElementById("size").value);
+            console.log(size);
             drawFigure(shape, x, y, color, size);
         }
         function drawFigure(shape, x, y, color, size) {

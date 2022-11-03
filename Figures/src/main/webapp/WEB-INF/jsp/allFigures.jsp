@@ -51,7 +51,7 @@
                         <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
                         <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
                         <td style="margin-bottom:10px; border: 1px solid black;">
-                            <form action="/" method="POST">
+                            <form action="/view" method="POST">
                                 <input type="hidden" name="fid" id="fid" value=${figure.id}>
                                 <input type="submit" value="Ver dibujo">
                             </form>

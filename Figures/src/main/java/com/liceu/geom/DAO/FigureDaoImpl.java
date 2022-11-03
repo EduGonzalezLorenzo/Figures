@@ -18,9 +18,9 @@ public class FigureDaoImpl implements FigureDao {
     }
 
     @Override
-    public void deleteFigure(Figure figure) {
+    public void deleteFigure(int figureID) {
         for (int i = 0; i < figuresList.size(); i++) {
-            if (figure.getId() == figuresList.get(i).getId()) {
+            if (figureID == figuresList.get(i).getId()) {
                 figuresList.remove(i);
                 break;
             }
@@ -41,6 +41,16 @@ public class FigureDaoImpl implements FigureDao {
             }
         }
         return userFiguresList;
+    }
+
+    @Override
+    public Figure getFigureByID(int figureID) {
+        for (Figure figure : figuresList) {
+            if(figure.getId() == figureID){
+                return figure;
+            }
+        }
+        return null;
     }
 
 }

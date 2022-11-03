@@ -21,6 +21,7 @@ public class DrawController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
+
         RequestDispatcher dispatcher;
         if (currentUser == null) {
             resp.sendRedirect("/login");

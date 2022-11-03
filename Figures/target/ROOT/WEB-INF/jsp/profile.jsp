@@ -36,6 +36,9 @@
     <main class="container">
         <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Perfil de ${currentUser.name}</h1>
+            <form action="/login" method="POST">
+                <input type="submit" value="Cambiar de usuario">    
+            </form>
             <table>
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
@@ -52,7 +55,7 @@
                             <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
                             <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
                             <td style="margin-bottom:10px; border: 1px solid black;">
-                                <form action="/profile" method="POST">
+                                <form action="/view" method="POST">
                                     <input type="hidden" name="fid" id="fid" value=${figure.id}>
                                     <input type="submit" value="Ver dibujo">
                                 </form>
