@@ -38,7 +38,7 @@
                 <label for="figName">Nombre de la figura:</label>
                 <input type="text" id="figName" name="figName">
                 <label for="shape">Seleccione una figura:</label>
-                <select name="shape" id="shape">
+                <select name="shape" id="shape" onchange="drawButton()" required>
                     <option value="circle">Círculo</option>
                     <option value="square">Cuadrado</option>
                     <option value="triangle">Triángulo</option>
@@ -47,7 +47,7 @@
                 </select>
                 <br>
                 <label for="color">Seleccione un color para la figura:</label>
-                <select name="color" id="color">
+                <select name="color" id="color" onchange="drawButton()" required> 
                     <option value="black">Negro</option>
                     <option value="green">Verde</option>
                     <option value="red">Rojo</option>
@@ -57,15 +57,15 @@
                 </select>
                 <br>
                 <label for="xCoor">Coordenada x: </label>
-                <input type="number" id="xCoor" name="xCoor">
+                <input type="number" id="xCoor" name="xCoor" onchange="drawButton()" required>
                 <label for="yCoor">Coordenada y: </label> 
-                <input type="number" id="yCoor" name="yCoor">
+                <input type="number" id="yCoor" name="yCoor" onchange="drawButton()" required>
                 <br>
                 <label for="size">Seleccione tamaño de la figura:</label>
                 <input type="range" min="10" max="500" value="250" id="sizeRange" name="sizeRange"
-                    oninput="this.form.size.value=this.value">
+                    oninput="this.form.size.value=this.value" onchange="drawButton()">
                 <input type="number" min="10" max="500" value="250" name="size" id="size"
-                    oninput="this.form.sizeRange.value=this.value">
+                    oninput="this.form.sizeRange.value=this.value" onchange="drawButton()">
                 <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente boton.</p>
                 <button type="button" onclick="drawButton()">Dibujar</button>
                 <input type="submit" value="Enviar">

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/drawVal")
-public class DrawValidator extends HttpServlet {
+public class DrawValidatorController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Boolean figureDrawn = (Boolean) session.getAttribute("drawStatus");
@@ -24,7 +24,7 @@ public class DrawValidator extends HttpServlet {
         if (figureDrawn){
             drawMsg = "Figura creada con exito.";
         } else {
-            drawMsg = "Ya tienes una figura con este nombre.";
+            drawMsg = "Error al crear la figura. Falta información o el nombre ya existe.";
         }
         req.setAttribute("deleteMessage", drawMsg);
         session.setAttribute("drawStatus", null);

@@ -4,9 +4,9 @@ com\liceu\geom\model\Figure.class
 com\liceu\geom\controllers\viewDrawController.class
 com\liceu\geom\DAO\UserDaoImpl.class
 com\liceu\geom\DAO\FigureDao.class
-com\liceu\geom\controllers\DrawValidator.class
 com\liceu\geom\DAO\FigureDaoImpl.class
 com\liceu\geom\DAO\UserDao.class
+com\liceu\geom\controllers\DrawValidatorController.class
 com\liceu\geom\controllers\AllFiguresController.class
 com\liceu\geom\controllers\LoginController.class
 com\liceu\geom\services\FigureService.class

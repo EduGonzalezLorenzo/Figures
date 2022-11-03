@@ -1,5 +1,7 @@
 package com.liceu.geom.controllers;
 
+import com.liceu.geom.model.Figure;
+import com.liceu.geom.model.User;
 import com.liceu.geom.services.FigureService;
 
 import javax.servlet.RequestDispatcher;
@@ -24,9 +26,10 @@ public class DeleteFigureController extends HttpServlet {
             return;
         }
 
+        User currentUser = (User) session.getAttribute("currentUser");
         String deleteMsg;
 
-        if (figureService.deleteFigure((int)IDFigureToDelete)){
+        if (figureService.deleteFigure((int)IDFigureToDelete, currentUser)){
             deleteMsg = "Figura borrada con exito.";
         } else {
             deleteMsg = "No ha sido posible borrar la figura";

@@ -36,27 +36,34 @@
     <main class="container">
         <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Todas las figuras</h1>
-            <table>
+             <table>
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de la figura</th>
                     <th style="margin-bottom:10px; border: 1px solid black;">Tipo de figura</th>
                     <th style="margin-bottom:10px; border: 1px solid black;">Fecha de creación</th>
                     <th style="margin-bottom:10px; border: 1px solid black;">Mostrar figura</th>
+                    <th style="margin-bottom:10px; border: 1px solid black;">Borrar figura</th>
                 </tr>
                 <c:forEach var="figure" items="${figures}">
-                    <tr style="margin-bottom:10px; border: 1px solid black;">
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
-                        <td style="margin-bottom:10px; border: 1px solid black;">
-                            <form action="/view" method="POST">
-                                <input type="hidden" name="fid" id="fid" value=${figure.id}>
-                                <input type="submit" value="Ver dibujo">
-                            </form>
-                        </td>
-                    </tr>
+                        <tr style="margin-bottom:10px; border: 1px solid black;">
+                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.user.name}</td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.name}</td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.shape}</td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">${figure.creationDate}</td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">
+                                <form action="/view" method="POST">
+                                    <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                    <input type="submit" value="Ver dibujo">
+                                </form>
+                            </td>
+                            <td style="margin-bottom:10px; border: 1px solid black;">
+                                <form action="/delete" method="POST">
+                                    <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                    <input type="submit" value="Borrar dibujo">
+                                </form>
+                            </td>
+                        </tr>
                 </c:forEach>
             </table>
         </article>

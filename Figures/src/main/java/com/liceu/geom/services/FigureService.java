@@ -6,16 +6,17 @@ import com.liceu.geom.model.Figure;
 import com.liceu.geom.model.User;
 
 import java.util.List;
+import java.util.Objects;
 
 public class FigureService {
     FigureDao figureDao = new FigureDaoImpl();
 
     public Boolean newFigure(User user, String name, int x, int y, int size, String color, String shape) {
-        if (name.equals("")){
+        if (name.equals("")) {
             name = shape + (int) ((Math.random()) * 100);
             Figure figure = new Figure(user, name, x, y, size, color, shape);
             Boolean success = figureDao.saveFigure(figure);
-            while (!success){
+            while (!success) {
                 name = shape + (int) ((Math.random()) * 100);
                 figure = new Figure(user, name, x, y, size, color, shape);
                 success = figureDao.saveFigure(figure);
@@ -34,7 +35,10 @@ public class FigureService {
         return figureDao.getUserFigures(user);
     }
 
-    public Boolean deleteFigure(int figureID){
+    public Boolean deleteFigure(int figureID, User currentUser) {
+        if (currentUser == null) return false;
+        Figure figure = getFigureByID(figureID);
+        if (figure.getUser().getId() != currentUser.getId()) return false;
         return figureDao.deleteFigure(figureID);
     }
 

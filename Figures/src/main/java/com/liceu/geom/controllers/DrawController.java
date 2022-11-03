@@ -35,14 +35,16 @@ public class DrawController extends HttpServlet {
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
         String name = req.getParameter("figName");
-        int x = Integer.parseInt(req.getParameter("xCoor"));
-        int y = Integer.parseInt(req.getParameter("yCoor"));
-        int size = Integer.parseInt(req.getParameter("size"));
         String shape = req.getParameter("shape");
         String color = req.getParameter("color");
-
-        session.setAttribute("drawStatus", figureService.newFigure(currentUser, name, x, y, size, color, shape));
-
+        if (req.getParameter("xCoor").equals("") || req.getParameter("yCoor").equals("") || req.getParameter("size").equals("") || shape == null || color == null) {
+            session.setAttribute("drawStatus", false);
+        } else {
+            int x = Integer.parseInt(req.getParameter("xCoor"));
+            int y = Integer.parseInt(req.getParameter("yCoor"));
+            int size = Integer.parseInt(req.getParameter("size"));
+            session.setAttribute("drawStatus", figureService.newFigure(currentUser, name, x, y, size, color, shape));
+        }
         resp.sendRedirect("/drawVal");
     }
 }
