@@ -26,19 +26,15 @@ public class DrawValidatorController extends HttpServlet {
         } else {
             drawMsg = "Error al crear la figura. Falta información o el nombre ya existe.";
         }
-        req.setAttribute("deleteMessage", drawMsg);
+        req.setAttribute("drawMessage", drawMsg);
         session.setAttribute("drawStatus", null);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/deleteFigure.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/drawValidation.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int figureID = Integer.parseInt(req.getParameter("fid"));
-
-        HttpSession session = req.getSession();
-        session.setAttribute("figureToDelete", figureID);
-
-        resp.sendRedirect("/delete");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/draw.jsp");
+        dispatcher.forward(req, resp);
     }
 }

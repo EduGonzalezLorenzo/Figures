@@ -18,8 +18,8 @@
     <title>Mensaje de borrado</title>
 </head>
 
-<body>
-    <header class="fixed-top">
+<body class="bg-danger">
+    <header class="fixed-top bg-white">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
                 <a class="nav-link text-center active" href="draw">Dibujar</a>
@@ -32,8 +32,26 @@
             </li>
         </ul>
     </header>
-   <main>
-        ${deleteMessage}
+    <main>
+    <%-- <c:choose>
+        <c:when test="${empty result}">
+        <section class="text-center">
+            <h1>¿Seguro que quieres borrar la figura?</h1>
+            <form action="/delete" method="POST">
+                <input type="hidden" name="delete" id="delete" value="Y">
+                <input type="submit" value="SI">
+            </form>
+            <form action="/delete" method="POST">
+                <input type="hidden" name="delete" id="delete" value="N">
+                <input type="submit" value="NO">
+            </form>
+        </section>
+        </c:when>
+        <c:otherwise>
+           <h1 class="text-center">${deleteMessage}</h1>
+        </c:otherwise>
+    </c:choose> --%>
+     <h1 class="text-center">${deleteMessage}</h1>
     </main>
 </body>
 </html>

@@ -9,7 +9,13 @@
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/classes/com/liceu/geom/controllers/DrawValidatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/classes/com/liceu/geom/controllers/DrawValidatorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/allFigures.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/allFigures.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/deleteFigure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/deleteFigure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/draw.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/draw.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/draw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/draw.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/drawValidation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/drawValidation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +120,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit y push inicial." />

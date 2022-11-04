@@ -18,8 +18,8 @@
     <title>Mi Perfil</title>
 </head>
 
-<body>
-    <header class="fixed-top">
+<body class="bg-info">
+    <header class="fixed-top bg-white">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
                 <a class="nav-link text-center active" href="draw">Dibujar</a>
@@ -39,7 +39,7 @@
             <form action="/profile" method="POST">
                 <input type="submit" value="Cerrar sesión">    
             </form>
-            <table>
+            <table class="bg-white">
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de la figura</th>

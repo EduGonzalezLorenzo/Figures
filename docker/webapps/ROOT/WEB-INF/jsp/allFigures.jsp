@@ -18,8 +18,8 @@
     <title>Todas las figuras</title>
 </head>
 
-<body>
-    <header class="fixed-top">
+<body class="bg-info">
+    <header class="fixed-top bg-white">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
                 <a class="nav-link text-center active" href="draw">Dibujar</a>
@@ -36,7 +36,7 @@
     <main class="container">
         <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Todas las figuras</h1>
-             <table>
+             <table class="bg-white">
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de la figura</th>

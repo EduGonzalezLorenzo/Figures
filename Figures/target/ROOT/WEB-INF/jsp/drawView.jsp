@@ -18,8 +18,8 @@
     <title>Visualización</title>
 </head>
 
-<body onload="drawButton()">
-    <header class="fixed-top">
+<body class="bg-info" onload="drawButton()">
+    <header class="fixed-top bg-white">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
                 <a class="nav-link text-center active" href="draw">Dibujar</a>
@@ -35,7 +35,7 @@
     <main class="container">
         <article id="drawView" class="row justify-content-center">
             <h1 class="text-center">Muestra de la figura ${figureToDraw.name} del usuario ${figureToDraw.user.name}.</h1>
-            <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
+            <canvas class="col-10 bg-white" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
             <input type="hidden" name="xCoor" id="xCoor" value=${figureToDraw.x}>
             <input type="hidden" name="yCoor" id="yCoor" value=${figureToDraw.y}>
             <input type="hidden" name="shape" id="shape" value=${figureToDraw.shape}>

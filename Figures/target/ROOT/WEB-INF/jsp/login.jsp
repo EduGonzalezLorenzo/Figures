@@ -18,15 +18,18 @@
     <title>Inicio de sesión</title>
 </head>
 
-<body>
+
+<body class="text-center bg-primary container">
     <h1>Inicio de sesión</h1>
-    <form action="/login" method="POST">
+    <article class="bg-light row justify-content-center">
+        <form  action="/login" method="POST">
         <label for="currentUser">Introduzca un usuario para empezar:</label>
         <input type="text" name="currentUser" id="currentUser">
         <input type="submit" value="Enviar">
-    </form>
-    <c:if test ="${not empty logError}">
-        <p> Error: ${logError}. </p>
+        <c:if test ="${not empty logError}">
+        <p class="bg-light text-danger"> Error: ${logError}. </p>
     </c:if>
+    </form>
+    </article>
 </body>
 </html>

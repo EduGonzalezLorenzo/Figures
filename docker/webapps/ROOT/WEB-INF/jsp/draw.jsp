@@ -19,8 +19,8 @@
     <title>Dibujar figura</title>
 </head>
 
-<body>
-    <header class="fixed-top">
+<body class="bg-info">
+    <header class="fixed-top bg-white">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
                 <a class="nav-link text-center active" href="draw">Dibujar</a>
@@ -36,44 +36,49 @@
 
     <main class="container">
         <article class="row" id="draw">
-            <form class="col-2" action="/draw" method="POST">
-                <label for="figName">Nombre de la figura:</label>
-                <input type="text" id="figName" name="figName">
-                <label for="shape">Seleccione una figura:</label>
-                <select name="shape" id="shape" onchange="drawButton()" required>
-                    <option value="circle">Círculo</option>
-                    <option value="square">Cuadrado</option>
-                    <option value="triangle">Triángulo</option>
-                    <option value="pentagon">Pentágono</option>
-                    <option value="star">Estrella de 7 puntas</option>
-                </select>
-                <br>
-                <label for="color">Seleccione un color para la figura:</label>
-                <select name="color" id="color" onchange="drawButton()" required>
-                    <option value="black">Negro</option>
-                    <option value="green">Verde</option>
-                    <option value="red">Rojo</option>
-                    <option value="blue">Azul</option>
-                    <option value="yellow">Amarillo</option>
-                    <option value="gray">Gris</option>
-                </select>
-                <br>
-                <label for="xCoor">Coordenada x: </label>
-                <input type="number" id="xCoor" name="xCoor" onchange="drawButton()" required>
-                <label for="yCoor">Coordenada y: </label>
-                <input type="number" id="yCoor" name="yCoor" onchange="drawButton()" required>
-                <br>
-                <label for="size">Seleccione tamaño de la figura:</label>
-                <input type="range" min="10" max="500" value="250" id="sizeRange" name="sizeRange"
-                    oninput="this.form.size.value=this.value" onchange="drawButton()">
-                <input type="number" min="10" max="500" value="250" name="size" id="size"
-                    oninput="this.form.sizeRange.value=this.value" onchange="drawButton()">
-                <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente
-                    boton.</p>
-                <button type="button" onclick="drawButton()">Dibujar</button>
-                <input type="submit" value="Enviar">
-            </form>
-            <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
+            <section class="col-2 bg-light">
+                <form  action="/draw" method="POST">
+                    <label for="figName">Nombre de la figura:</label>
+                    <input type="text" id="figName" name="figName">
+                    <label for="shape">Seleccione una figura:</label>
+                    <select name="shape" id="shape" onchange="drawButton()" required>
+                        <option value="circle">Círculo</option>
+                        <option value="square">Cuadrado</option>
+                        <option value="triangle">Triángulo</option>
+                        <option value="pentagon">Pentágono</option>
+                        <option value="star">Estrella de 7 puntas</option>
+                    </select>
+                    <br>
+                    <label for="color">Seleccione un color para la figura:</label>
+                    <select name="color" id="color" onchange="drawButton()" required>
+                        <option value="black">Negro</option>
+                        <option value="green">Verde</option>
+                        <option value="red">Rojo</option>
+                        <option value="blue">Azul</option>
+                        <option value="yellow">Amarillo</option>
+                        <option value="gray">Gris</option>
+                    </select>
+                    <br>
+                    <label for="xCoor">Coordenada x: </label>
+                    <input type="number" id="xCoor" name="xCoor" onchange="drawButton()" required>
+                    <label for="yCoor">Coordenada y: </label>
+                    <input type="number" id="yCoor" name="yCoor" onchange="drawButton()" required>
+                    <br>
+                    <label for="size">Seleccione tamaño de la figura:</label>
+                    <input type="range" min="10" max="500" value="250" id="sizeRange" name="sizeRange"
+                        oninput="this.form.size.value=this.value" onchange="drawButton()">
+                    <input type="number" min="10" max="500" value="250" name="size" id="size"
+                        oninput="this.form.sizeRange.value=this.value" onchange="drawButton()">
+                    <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente
+                        boton.</p>
+                    <button type="button" onclick="drawButton()">Dibujar</button>
+                    <input type="submit" value="Enviar">
+                </form>
+            </section>
+            <section class="col-10">
+                <canvas class="bg-white" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
+            </section>
+            
 
         </article>
 

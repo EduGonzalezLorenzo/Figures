@@ -18,8 +18,8 @@
     <title>Validación de figura</title>
 </head>
 
-<body>
-    <header class="fixed-top">
+<body class="bg-success">
+    <header class="fixed-top bg-white">
         <ul class="nav nav-tabs justify-content-around row" role="tablist">
             <li class="nav-item col-4">
                 <a class="nav-link text-center active" href="draw">Dibujar</a>
@@ -33,7 +33,7 @@
         </ul>
     </header>
    <main>
-        ${drawMessage}
+   <h1 class="text-center">${drawMessage}</h1>
     </main>
 </body>
 </html>
