@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a1114b75-ff54-4663-942b-a1644bdd03b2" name="Changes" comment="Commit y push inicial.">
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/classes/com/liceu/geom/services/FigureService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/classes/com/liceu/geom/services/FigureService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/allFigures.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/allFigures.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +51,8 @@
       <recent name="C:\Users\eduar\OneDrive\Escritorio\Proyectos\Figures\Figures\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\eduar\Desktop\GitHub\Figures\Figures\src\main\java\com\liceu\geom\filters" />
+      <recent name="C:\Users\eduar\Desktop\GitHub\Figures\Figures\src\main\java\com\liceu\geom\controllers" />
       <recent name="C:\Users\eduar\OneDrive\Escritorio\Proyectos\Figures\Figures\src\main\webapp" />
     </key>
   </component>
@@ -110,6 +114,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit y push inicial." />

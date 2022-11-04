@@ -59,8 +59,10 @@
                             </td>
                             <td style="margin-bottom:10px; border: 1px solid black;">
                                 <form action="/delete" method="POST">
-                                    <input type="hidden" name="fid" id="fid" value=${figure.id}>
-                                    <input type="submit" value="Borrar dibujo">
+                                    <c:if test="${figure.user.id == currentUser.id}">
+                                        <input type="hidden" name="fid" id="fid" value=${figure.id}>
+                                        <input type="submit" value="Borrar dibujo">
+                                    </c:if>                                    
                                 </form>
                             </td>
                         </tr>

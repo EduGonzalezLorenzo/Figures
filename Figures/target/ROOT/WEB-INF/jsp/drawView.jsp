@@ -77,6 +77,7 @@
                     drawPengaton(x, y, color, size);
                     break;
                 case "star":
+                    drawStar(x, y, color, size);
                     break;
                 default:
 
@@ -121,6 +122,39 @@
             ctx.fillStyle = color;
             ctx.fill();
         }
+        function drawStar(x, y, color, size) {
+            let outerRadius = size/2;
+            let innerRadius = outerRadius / 4;
+            let rotAngle = Math.PI / 2 * 3;
+            let step = Math.PI / 7;
+            x = Number(x);
+            y = Number(y);
+            let newX = x;
+            let newY = y;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y - outerRadius)
+            for (i = 0; i < 7; i++) {
+                newX = x + Math.cos(rotAngle) * outerRadius;
+                newY = y + Math.sin(rotAngle) * outerRadius;
+                ctx.lineTo(newX, newY)
+                rotAngle += step
+
+                newX = x + Math.cos(rotAngle) * innerRadius;
+                newY = y + Math.sin(rotAngle) * innerRadius;
+                ctx.lineTo(newX, newY)
+                rotAngle += step
+            }
+            ctx.lineTo(x, y - outerRadius);
+            ctx.closePath();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = color;
+            ctx.stroke();
+            ctx.fillStyle = color;
+            ctx.fill();
+
+        }
+
     </script>
 </body>
 

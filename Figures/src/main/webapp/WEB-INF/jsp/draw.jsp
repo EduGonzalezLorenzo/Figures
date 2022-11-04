@@ -1,10 +1,12 @@
 <%@ page isELIgnored="false" %>
-<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<style><%@include file="./styles.css"%></style>
+            <style>
+                <%@include file="./styles.css" %>
+            </style>
 
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -47,7 +49,7 @@
                 </select>
                 <br>
                 <label for="color">Seleccione un color para la figura:</label>
-                <select name="color" id="color" onchange="drawButton()" required> 
+                <select name="color" id="color" onchange="drawButton()" required>
                     <option value="black">Negro</option>
                     <option value="green">Verde</option>
                     <option value="red">Rojo</option>
@@ -58,7 +60,7 @@
                 <br>
                 <label for="xCoor">Coordenada x: </label>
                 <input type="number" id="xCoor" name="xCoor" onchange="drawButton()" required>
-                <label for="yCoor">Coordenada y: </label> 
+                <label for="yCoor">Coordenada y: </label>
                 <input type="number" id="yCoor" name="yCoor" onchange="drawButton()" required>
                 <br>
                 <label for="size">Seleccione tamaño de la figura:</label>
@@ -66,12 +68,13 @@
                     oninput="this.form.size.value=this.value" onchange="drawButton()">
                 <input type="number" min="10" max="500" value="250" name="size" id="size"
                     oninput="this.form.sizeRange.value=this.value" onchange="drawButton()">
-                <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente boton.</p>
+                <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente
+                    boton.</p>
                 <button type="button" onclick="drawButton()">Dibujar</button>
                 <input type="submit" value="Enviar">
             </form>
             <canvas class="col-10" id="canvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
-            
+
         </article>
 
     </main>
@@ -84,7 +87,7 @@
             getData();
         });
 
-        function drawButton(){
+        function drawButton() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             let x = parseInt(document.getElementById("xCoor").value);
             let y = parseInt(document.getElementById("yCoor").value);
@@ -103,7 +106,7 @@
             let size = parseInt(document.getElementById("size").value);
             drawFigure(shape, x, y, color, size);
             document.getElementById("xCoor").value = x;
-            document.getElementById("yCoor").value = y;            
+            document.getElementById("yCoor").value = y;
         }
         function drawFigure(shape, x, y, color, size) {
             switch (shape) {
@@ -120,7 +123,7 @@
                     drawPengaton(x, y, color, size);
                     break;
                 case "star":
-
+                    drawStar(x, y, color, size);
                     break;
                 default:
 
@@ -164,6 +167,38 @@
             ctx.stroke();
             ctx.fillStyle = color;
             ctx.fill();
+        }
+        function drawStar(x, y, color, size) {
+            let outerRadius = size/2;
+            let innerRadius = outerRadius / 4;
+            let rotAngle = Math.PI / 2 * 3;
+            let step = Math.PI / 7;
+            x = Number(x);
+            y = Number(y);
+            let newX = x;
+            let newY = y;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y - outerRadius)
+            for (i = 0; i < 7; i++) {
+                newX = x + Math.cos(rotAngle) * outerRadius;
+                newY = y + Math.sin(rotAngle) * outerRadius;
+                ctx.lineTo(newX, newY)
+                rotAngle += step
+
+                newX = x + Math.cos(rotAngle) * innerRadius;
+                newY = y + Math.sin(rotAngle) * innerRadius;
+                ctx.lineTo(newX, newY)
+                rotAngle += step
+            }
+            ctx.lineTo(x, y - outerRadius);
+            ctx.closePath();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = color;
+            ctx.stroke();
+            ctx.fillStyle = color;
+            ctx.fill();
+
         }
     </script>
 </body>
