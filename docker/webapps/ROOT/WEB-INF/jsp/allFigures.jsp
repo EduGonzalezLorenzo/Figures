@@ -36,6 +36,11 @@
     <main class="container">
         <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Todas las figuras</h1>
+            <form action="/allFig" method="POST">
+                <label for="nameSearch">Busqueda por nombre:</label>
+                <input type="text" id="nameSearch" name="nameSearch">
+                <input type="submit" value="Buscar">    
+            </form>
              <table class="bg-white">
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
@@ -58,7 +63,7 @@
                                 </form>
                             </td>
                             <td style="margin-bottom:10px; border: 1px solid black;">
-                                <form action="/delete" method="POST">
+                                <form action="/delete" method="GET">
                                     <c:if test="${figure.user.id == currentUser.id}">
                                         <input type="hidden" name="fid" id="fid" value=${figure.id}>
                                         <input type="submit" value="Borrar dibujo">

@@ -18,37 +18,41 @@ public class DeleteFigureController extends HttpServlet {
     FigureService figureService = new FigureService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        Object IDFigureToDelete =  session.getAttribute("figureToDelete");
-
-        if (IDFigureToDelete == null){
+        if (req.getParameter("fid")==null){
             resp.sendRedirect("/draw");
             return;
         }
-
-        User currentUser = (User) session.getAttribute("currentUser");
-        String deleteMsg;
-
-        if (figureService.deleteFigure((int)IDFigureToDelete, currentUser)){
-            deleteMsg = "Figura borrada con exito.";
-        } else {
-            deleteMsg = "No ha sido posible borrar la figura";
-        }
-        req.setAttribute("deleteMessage", deleteMsg);
-
-        session.setAttribute("figureToDelete", null);
-
+        int figureID = Integer.parseInt(req.getParameter("fid"));
+        HttpSession session = req.getSession();
+        session.setAttribute("figureToDelete", figureID);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/deleteFigure.jsp");
         dispatcher.forward(req, resp);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int figureID = Integer.parseInt(req.getParameter("fid"));
+            HttpSession session = req.getSession();
+            Object IDFigureToDelete =  session.getAttribute("figureToDelete");
 
-        HttpSession session = req.getSession();
-        session.setAttribute("figureToDelete", figureID);
+            if (IDFigureToDelete == null){
+                resp.sendRedirect("/draw");
+                return;
+            }
 
-        resp.sendRedirect("/delete");
+            User currentUser = (User) session.getAttribute("currentUser");
+            String deleteMsg;
+
+            if (figureService.deleteFigure((int)IDFigureToDelete, currentUser)){
+                deleteMsg = "Figura borrada con exito.";
+            } else {
+                deleteMsg = "No ha sido posible borrar la figura";
+            }
+            req.setAttribute("deleteMessage", deleteMsg);
+
+            session.setAttribute("figureToDelete", null);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/deleteFigure.jsp");
+            dispatcher.forward(req, resp);
     }
 }

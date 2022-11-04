@@ -5,6 +5,7 @@ import com.liceu.geom.DAO.FigureDaoImpl;
 import com.liceu.geom.model.Figure;
 import com.liceu.geom.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,5 +45,13 @@ public class FigureService {
 
     public Figure getFigureByID(int figureID) {
         return figureDao.getFigureByID(figureID);
+    }
+
+    public List<Figure> getFiguresByNames(List<Figure> figureList, String figureName) {
+        List<Figure> filteredFigureList = new ArrayList<>();
+        for (Figure figure : figureList) {
+            if (figure.getName().equals(figureName)) filteredFigureList.add(figure);
+        }
+        return filteredFigureList;
     }
 }

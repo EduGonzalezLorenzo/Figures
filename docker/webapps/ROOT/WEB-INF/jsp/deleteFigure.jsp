@@ -33,25 +33,19 @@
         </ul>
     </header>
     <main>
-    <%-- <c:choose>
-        <c:when test="${empty result}">
-        <section class="text-center">
-            <h1>¿Seguro que quieres borrar la figura?</h1>
-            <form action="/delete" method="POST">
-                <input type="hidden" name="delete" id="delete" value="Y">
-                <input type="submit" value="SI">
-            </form>
-            <form action="/delete" method="POST">
-                <input type="hidden" name="delete" id="delete" value="N">
-                <input type="submit" value="NO">
-            </form>
-        </section>
-        </c:when>
-        <c:otherwise>
+        <c:if test="${empty deleteMessage}">
+            <section class="text-center">
+                <h1>¿Seguro que quieres borrar la figura?</h1>
+                <form action="/delete" method="POST">
+                    <input type="submit" value="SI">
+                </form>
+                <form action="/draw" method="GET">
+                    <input type="submit" value="NO">
+                </form>
+            </section>
+        </c:if>
            <h1 class="text-center">${deleteMessage}</h1>
-        </c:otherwise>
-    </c:choose> --%>
-     <h1 class="text-center">${deleteMessage}</h1>
+
     </main>
 </body>
 </html>

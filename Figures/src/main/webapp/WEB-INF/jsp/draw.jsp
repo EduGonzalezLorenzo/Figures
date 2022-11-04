@@ -67,7 +67,7 @@
                     <label for="size">Seleccione tamaño de la figura:</label>
                     <input type="range" min="10" max="500" value="250" id="sizeRange" name="sizeRange"
                         oninput="this.form.size.value=this.value" onchange="drawButton()">
-                    <input type="number" min="10" max="500" value="250" name="size" id="size"
+                    <input type="number" min="10" max="700" value="250" name="size" id="size"
                         oninput="this.form.sizeRange.value=this.value" onchange="drawButton()">
                     <p>Para dibujar clica en el tablero o rellena el formulario a mano y clica en siguiente
                         boton.</p>
@@ -150,12 +150,15 @@
             ctx.fill();
         }
         function drawTriangle(x, y, color, size) {
-            let radius = size / 2;
+            let height= (Math.sqrt(3)*Number(size))/2;
+            x -= (height/2);
+            y += (height/2);
             ctx.beginPath();
-            ctx.moveTo(x, y - radius);
-            ctx.lineTo(x - radius, y + radius);
-            ctx.lineTo(x + radius, y + radius);
-            ctx.closePath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x+size, y);
+            ctx.lineTo(x+size/2, y-height);
+            ctx.lineTo(x+(size)/2, y-height);
+            ctx.lineTo(x,  y);
             ctx.stroke();
             ctx.fillStyle = color;
             ctx.fill();
@@ -178,8 +181,6 @@
             let innerRadius = outerRadius / 4;
             let rotAngle = Math.PI / 2 * 3;
             let step = Math.PI / 7;
-            x = Number(x);
-            y = Number(y);
             let newX = x;
             let newY = y;
             

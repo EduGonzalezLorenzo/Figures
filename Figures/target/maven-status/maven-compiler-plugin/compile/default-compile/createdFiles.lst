@@ -1,4 +1,5 @@
 com\liceu\geom\model\User.class
+com\liceu\geom\controllers\LogoutController.class
 com\liceu\geom\controllers\ProfileController.class
 com\liceu\geom\model\Figure.class
 com\liceu\geom\controllers\viewDrawController.class

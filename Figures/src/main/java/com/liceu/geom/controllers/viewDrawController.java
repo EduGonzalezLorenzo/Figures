@@ -19,12 +19,11 @@ public class viewDrawController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Object IDFigureToDraw =  session.getAttribute("figureToDraw");
-
         if (IDFigureToDraw == null){
             resp.sendRedirect("/draw");
             return;
         }
-
+        session.setAttribute("figureToDraw", null);
         Figure figureToDraw = figureService.getFigureByID((int)IDFigureToDraw);
 
         req.setAttribute("figureToDraw", figureToDraw);

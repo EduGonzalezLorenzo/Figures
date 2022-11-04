@@ -36,9 +36,17 @@
     <main class="container">
         <article id="allFig" class="row justify-content-center">
             <h1 class="text-center">Perfil de ${currentUser.name}</h1>
-            <form action="/profile" method="POST">
-                <input type="submit" value="Cerrar sesión">    
-            </form>
+            <div class="row justify-content-between">                
+                <form class="col-6" action="/profile" method="POST">
+                    <label for="nameSearch">Busqueda por nombre:</label>
+                    <input type="text" id="nameSearch" name="nameSearch">
+                    <input type="submit" value="Buscar">    
+                </form>
+                <form class="col-4" action="/logout" method="POST">
+                    <input type="submit" value="Cerrar sesión">    
+                </form>
+            </div>
+           
             <table class="bg-white">
                 <tr style="margin-bottom:10px; border: 1px solid black;">
                     <th style="margin-bottom:10px; border: 1px solid black;">Nombre de usuario</th>
@@ -61,7 +69,7 @@
                                 </form>
                             </td>
                             <td style="margin-bottom:10px; border: 1px solid black;">
-                                <form action="/delete" method="POST">
+                                <form action="/delete" method="GET">
                                     <input type="hidden" name="fid" id="fid" value=${figure.id}>
                                     <input type="submit" value="Borrar dibujo">
                                 </form>
