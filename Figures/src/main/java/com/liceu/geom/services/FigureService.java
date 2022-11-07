@@ -13,6 +13,7 @@ public class FigureService {
     FigureDao figureDao = new FigureDaoImpl();
 
     public Boolean newFigure(User user, String name, int x, int y, int size, String color, String shape) {
+        //Si el usuario no introduce nombre se genera uno al azar comprobando que no exista ese nombre de figura para ese usuario.
         if (name.equals("")) {
             name = shape + (int) ((Math.random()) * 100);
             Figure figure = new Figure(user, name, x, y, size, color, shape);
@@ -37,8 +38,12 @@ public class FigureService {
     }
 
     public Boolean deleteFigure(int figureID, User currentUser) {
+        //Se verifica que haya un usuario activo.
         if (currentUser == null) return false;
+        //Se obtiene la figura y si existe se intenta borrar.
         Figure figure = getFigureByID(figureID);
+        if (figure == null) return false;
+        //Se verifica que el usuario que quiere borrar la figura sea el activo
         if (figure.getUser().getId() != currentUser.getId()) return false;
         return figureDao.deleteFigure(figureID);
     }

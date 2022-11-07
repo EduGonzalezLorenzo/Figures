@@ -15,16 +15,19 @@ import java.io.IOException;
 @WebServlet("/view")
 public class viewDrawController extends HttpServlet {
     FigureService figureService = new FigureService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Si se intenta acceder directamente sin que este definida una figura a mostrar se redirige a draw.
         HttpSession session = req.getSession();
-        Object IDFigureToDraw =  session.getAttribute("figureToDraw");
-        if (IDFigureToDraw == null){
+        Object IDFigureToDraw = session.getAttribute("figureToDraw");
+        if (IDFigureToDraw == null) {
             resp.sendRedirect("/draw");
             return;
         }
+        //Se obtienen los atributos de la figura a mostrar y se envian al cliente.
         session.setAttribute("figureToDraw", null);
-        Figure figureToDraw = figureService.getFigureByID((int)IDFigureToDraw);
+        Figure figureToDraw = figureService.getFigureByID((int) IDFigureToDraw);
 
         req.setAttribute("figureToDraw", figureToDraw);
 
@@ -33,7 +36,8 @@ public class viewDrawController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Se guarda el id de la figura a mostrar.
         int figureID = Integer.parseInt(req.getParameter("fid"));
 
         HttpSession session = req.getSession();

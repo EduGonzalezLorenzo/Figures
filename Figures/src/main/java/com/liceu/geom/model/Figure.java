@@ -22,7 +22,8 @@ public class Figure {
         this.size = size;
         this.color = color;
         this.shape = shape;
-        SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'a las' HH:mm:ss");
+        //Se genera la fecha y hora actual y se le asigna al atributo creationDate
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy 'a las' HH:mm:ss");
         Date date = new Date(System.currentTimeMillis() + 3600000);
         this.creationDate = formatter.format(date);
     }

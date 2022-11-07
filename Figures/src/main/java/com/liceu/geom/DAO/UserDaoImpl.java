@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
+    //Se declara una lista de usuarios estatica para que se almacene en la RAM una única lista de usuarios por ejecución de la aplicación
     static List<User> userRegistered = new ArrayList<>();
     static User currentUser;
     static int currentID = 0;
@@ -13,6 +14,7 @@ public class UserDaoImpl implements UserDao {
     @Override
 
     public void login(User user) {
+        //Si el usuario no existe lo crea. Exista o no lo declara como usuario actual.
         for (User u : userRegistered) {
             if (u.getName().equals(user.getName())) {
                 currentUser = user;

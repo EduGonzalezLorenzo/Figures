@@ -20,6 +20,7 @@ public class ProfileController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //No se puede acceder si no hay usuario actual definido.
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
         if (currentUser == null) {
@@ -35,6 +36,7 @@ public class ProfileController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Se filtra la lista de figuras del usuario en base al nombre dado por el usuario y se devuelve la nueva lista al cliente.
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
         List<Figure> figureList = figureService.getUserFigures(currentUser);

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/login")
-public class LoginController  extends HttpServlet {
+public class LoginController extends HttpServlet {
     UserService userService = new UserService();
 
     @Override
@@ -23,8 +23,9 @@ public class LoginController  extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Comprueba si se ha intentado acceder con un string vacio. Si el nombre de usuario es valido lo declara como usuario actual.
         String userName = req.getParameter("currentUser");
-        if (userName.equals("")){
+        if (userName.equals("")) {
             req.setAttribute("logError", "No se ha introducido un nombre valido.");
             RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(req, resp);

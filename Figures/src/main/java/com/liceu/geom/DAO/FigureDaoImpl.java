@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FigureDaoImpl implements FigureDao {
+    //Se declara una lista de figuras estatica para que se almacene en la RAM una única lista de figuras por ejecución de la aplicación
     static List<Figure> figuresList = new ArrayList<>();
     static int currentID = 0;
 
     @Override
     public Boolean saveFigure(Figure figure) {
+        //Si ya existe una figura con el mismo nombre asignada al mismo usuario no se puede guardar y se notificará con el false.
         for (Figure f : figuresList) {
-            if (f.getName().equals(figure.getName()) && f.getUser().getName().equals(figure.getUser().getName())){
+            if (f.getName().equals(figure.getName()) && f.getUser().getName().equals(figure.getUser().getName())) {
                 return false;
             }
         }

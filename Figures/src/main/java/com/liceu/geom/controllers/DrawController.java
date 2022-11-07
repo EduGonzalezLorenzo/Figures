@@ -18,6 +18,7 @@ public class DrawController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //No se puede acceder si no hay usuario actual definido.
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
 
@@ -31,7 +32,8 @@ public class DrawController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //Comprueba que los parametros del formulario son correctos e intenta crear la figura.
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
         String name = req.getParameter("figName");

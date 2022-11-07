@@ -12,16 +12,18 @@ import java.io.IOException;
 @WebServlet("/drawVal")
 public class DrawValidatorController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Si se intenta acceder directamente sin que este definida una figura a crear se redirige a draw.
         HttpSession session = req.getSession();
         Boolean figureDrawn = (Boolean) session.getAttribute("drawStatus");
 
-        if (figureDrawn == null){
+        if (figureDrawn == null) {
             resp.sendRedirect("/draw");
             return;
         }
+        //Se intenta crear la figura y se notifica al cliente si ha podido.
         String drawMsg;
 
-        if (figureDrawn){
+        if (figureDrawn) {
             drawMsg = "Figura creada con exito.";
         } else {
             drawMsg = "Error al crear la figura. Falta información o el nombre ya existe.";

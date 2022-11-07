@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/META-INF/maven/org.exemple/Figures/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/draw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/webapps/ROOT/WEB-INF/jsp/draw.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +45,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\eduar\OneDrive\Escritorio\Proyectos\Figures\Figures\src\main\webapp\WEB-INF" />
@@ -120,6 +113,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit y push inicial." />

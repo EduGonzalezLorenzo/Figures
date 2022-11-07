@@ -1,6 +1,5 @@
 package com.liceu.geom.controllers;
 
-import com.liceu.geom.model.Figure;
 import com.liceu.geom.model.User;
 import com.liceu.geom.services.FigureService;
 
@@ -16,12 +15,15 @@ import java.io.IOException;
 @WebServlet("/delete")
 public class DeleteFigureController extends HttpServlet {
     FigureService figureService = new FigureService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameter("fid")==null){
+        //Si se intenta acceder directamente sin que este definida una figura a borrar se redirige a draw.
+        if (req.getParameter("fid") == null) {
             resp.sendRedirect("/draw");
             return;
         }
+        //Almacena el id de la figura a borrar
         int figureID = Integer.parseInt(req.getParameter("fid"));
         HttpSession session = req.getSession();
         session.setAttribute("figureToDelete", figureID);
@@ -32,27 +34,28 @@ public class DeleteFigureController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            HttpSession session = req.getSession();
-            Object IDFigureToDelete =  session.getAttribute("figureToDelete");
+        //Obtiene la figura con el ID y la intenta borrar, notificando al cliente si lo ha conseguido o no.
+        HttpSession session = req.getSession();
+        Object IDFigureToDelete = session.getAttribute("figureToDelete");
 
-            if (IDFigureToDelete == null){
-                resp.sendRedirect("/draw");
-                return;
-            }
+        if (IDFigureToDelete == null) {
+            resp.sendRedirect("/draw");
+            return;
+        }
 
-            User currentUser = (User) session.getAttribute("currentUser");
-            String deleteMsg;
+        User currentUser = (User) session.getAttribute("currentUser");
+        String deleteMsg;
 
-            if (figureService.deleteFigure((int)IDFigureToDelete, currentUser)){
-                deleteMsg = "Figura borrada con exito.";
-            } else {
-                deleteMsg = "No ha sido posible borrar la figura";
-            }
-            req.setAttribute("deleteMessage", deleteMsg);
+        if (figureService.deleteFigure((int) IDFigureToDelete, currentUser)) {
+            deleteMsg = "Figura borrada con exito.";
+        } else {
+            deleteMsg = "No ha sido posible borrar la figura";
+        }
+        req.setAttribute("deleteMessage", deleteMsg);
 
-            session.setAttribute("figureToDelete", null);
+        session.setAttribute("figureToDelete", null);
 
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/deleteFigure.jsp");
-            dispatcher.forward(req, resp);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/deleteFigure.jsp");
+        dispatcher.forward(req, resp);
     }
 }
