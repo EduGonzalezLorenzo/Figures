@@ -41,7 +41,7 @@
                     <label for="figName">Nombre de la figura:</label>
                     <input type="text" id="figName" name="figName">
                     <label for="shape">Seleccione una figura:</label>
-                    <select name="shape" id="shape" onchange="drawButton()" required>
+                    <select name="shape" id="shape" onchange="drawButton()">
                         <option value="circle">Círculo</option>
                         <option value="square">Cuadrado</option>
                         <option value="triangle">Triángulo</option>
@@ -50,7 +50,7 @@
                     </select>
                     <br>
                     <label for="color">Seleccione un color para la figura:</label>
-                    <select name="color" id="color" onchange="drawButton()" required>
+                    <select name="color" id="color" onchange="drawButton()">
                         <option value="black">Negro</option>
                         <option value="green">Verde</option>
                         <option value="red">Rojo</option>

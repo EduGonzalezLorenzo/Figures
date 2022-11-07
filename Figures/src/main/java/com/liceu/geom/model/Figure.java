@@ -1,6 +1,7 @@
 package com.liceu.geom.model;
 
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Figure {
     String name;
@@ -11,7 +12,7 @@ public class Figure {
     String shape;
     User user;
     int id;
-    LocalDate creationDate;
+    String creationDate;
 
     public Figure(User user, String name, int x, int y, int size, String color, String shape) {
         this.user = user;
@@ -21,7 +22,9 @@ public class Figure {
         this.size = size;
         this.color = color;
         this.shape = shape;
-        this.creationDate = java.time.LocalDate.now();
+        SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'a las' HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis() + 3600000);
+        this.creationDate = formatter.format(date);
     }
 
     public String getName() {
@@ -88,11 +91,11 @@ public class Figure {
         this.id = id;
     }
 
-    public LocalDate getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 }
